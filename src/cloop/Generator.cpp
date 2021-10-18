@@ -45,6 +45,16 @@ const char* const Generator::AUTOGEN_MSG =
 //--------------------------------------
 
 
+static const char* tabs = "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
+void identify(FILE* out, unsigned ident)
+{
+	fprintf(out, "%.*s", ident, tabs);
+}
+
+
+//--------------------------------------
+
+
 FileGenerator::FileGenerator(const string& filename, const string& prefix)
 	: prefix(prefix)
 {
@@ -337,17 +347,13 @@ void CppGenerator::generate()
 				fprintf(out, "\t\t\tif (cloopVTable->version < %d)\n", method->version);
 				fprintf(out, "\t\t\t{\n");
 
-				if (!statusName.empty())
-				{
-					fprintf(out,
-						"\t\t\t\tStatusType::setVersionError(%s, \"%s%s\", cloopVTable->version, %d);\n",
-						statusName.c_str(),
-						prefix.c_str(),
-						interface->name.c_str(),
-						method->version);
+				const string exceptionClass("StatusType");
+				ActionParametersBlock apb = {out, LANGUAGE_CPP, prefix, exceptionClass, statusName, interface, method};
 
-					fprintf(out, "\t\t\t\tStatusType::checkException(%s);\n", statusName.c_str());
-				}
+				if (method->notImplementedAction)
+					method->notImplementedAction->generate(apb, 4);
+				else
+					DefAction(DefAction::DEF_NOT_IMPLEMENTED).generate(apb, 4);
 
 				fprintf(out, "\t\t\t\treturn");
 
@@ -702,7 +708,7 @@ void CHeaderGenerator::generate()
 			methods.insert(methods.begin(), p->methods.begin(), p->methods.end());
 
 		fprintf(out, "#define %s%s_VERSION %d\n\n",
-			prefix.c_str(), interface->name.c_str(), (int) methods.size());
+			prefix.c_str(), interface->name.c_str(), interface->version);
 
 		for (vector<Constant*>::iterator j = interface->constants.begin();
 			 j != interface->constants.end();
@@ -1035,12 +1041,7 @@ void PascalGenerator::generate()
 		if (!interface->super)
 			fprintf(out, "\t\tvTable: %sVTable;\n\n", escapeName(interface->name).c_str());
 
-		unsigned version = 0;
-
-		for (Interface* p = interface; p; p = p->super)
-			version += p->methods.size();
-
-		fprintf(out, "\t\tconst VERSION = %d;\n", version);
+		fprintf(out, "\t\tconst VERSION = %d;\n", interface->version);
 
 		for (vector<Constant*>::iterator j = interface->constants.begin();
 			 j != interface->constants.end();
@@ -1153,6 +1154,15 @@ void PascalGenerator::generate()
 			bool isProcedure = method->returnTypeRef.token.type == Token::TYPE_VOID &&
 				 !method->returnTypeRef.isPointer;
 
+			string statusName;
+
+			if (!method->parameters.empty() &&
+				parser->exceptionInterface &&
+				method->parameters.front()->typeRef.token.text == parser->exceptionInterface->name)
+			{
+				statusName = method->parameters.front()->name;
+			}
+
 			fprintf(out, "%s %s.%s(",
 				(isProcedure ? "procedure" : "function"),
 				escapeName(interface->name, true).c_str(),
@@ -1179,8 +1189,34 @@ void PascalGenerator::generate()
 			fprintf(out, "begin\n");
 			fprintf(out, "\t");
 
-			//// TODO: checkVersion
+			unsigned ident = 1;
+			if (method->version - (interface->super ? interface->super->version : 0) != 1)
+			{
+				fprintf(out, "\tif (vTable.version < %d) then begin\n", method->version);
 
+				ActionParametersBlock apb = {out, LANGUAGE_PASCAL, prefix, exceptionClass,
+					statusName, interface, method};
+
+				if (method->notImplementedAction)
+					method->notImplementedAction->generate(apb, 2);
+				else
+					DefAction(DefAction::DEF_NOT_IMPLEMENTED).generate(apb, 2);
+
+				if (method->returnTypeRef.token.type != Token::TYPE_VOID ||
+					method->returnTypeRef.isPointer)
+				{
+					fprintf(out, "\t\tResult := %s;\n",
+						method->notImplementedExpr ?
+							method->notImplementedExpr->generate(LANGUAGE_PASCAL, prefix).c_str() :
+							method->returnTypeRef.valueIsPointer() ? "nil" :
+							method->returnTypeRef.token.type == Token::TYPE_BOOLEAN ? "false" : "0");
+				}
+
+				fprintf(out, "\tend\n\telse begin\n");
+				ident = 2;
+			}
+
+			identify(out, ident);
 			if (!isProcedure)
 				fprintf(out, "Result := ");
 
@@ -1197,14 +1233,11 @@ void PascalGenerator::generate()
 
 			fprintf(out, ");\n");
 
-			if (!method->parameters.empty() &&
-				parser->exceptionInterface &&
-				method->parameters.front()->typeRef.token.text == parser->exceptionInterface->name &&
-				!exceptionClass.empty())
-			{
-				fprintf(out, "\t%s.checkException(%s);\n", exceptionClass.c_str(),
-					escapeName(method->parameters.front()->name).c_str());
-			}
+			if (ident > 1)
+				fprintf(out, "\tend;\n");
+
+			if (!statusName.empty() && !exceptionClass.empty())
+				fprintf(out, "\t%s.checkException(%s);\n", exceptionClass.c_str(), escapeName(statusName).c_str());
 
 			fprintf(out, "end;\n\n");
 		}
@@ -1323,7 +1356,7 @@ void PascalGenerator::generate()
 		fprintf(out, "\t%sImpl_vTable := %sVTable.create;\n",
 			escapeName(interface->name, true).c_str(), escapeName(interface->name).c_str());
 		fprintf(out, "\t%sImpl_vTable.version := %d;\n",
-			escapeName(interface->name, true).c_str(), (int) methods.size());
+			escapeName(interface->name, true).c_str(), interface->version);
 
 		for (deque<Method*>::iterator j = methods.begin(); j != methods.end(); ++j)
 		{
@@ -1426,6 +1459,7 @@ string PascalGenerator::escapeName(string name, bool interfaceName)
 	if (name == "file" ||
 		name == "function" ||
 		name == "procedure" ||
+		name == "record" ||
 		name == "set" ||
 		name == "to" ||
 		name == "type")
@@ -1923,7 +1957,7 @@ void JnaGenerator::generate()
 			{
 				fprintf(out, "\t\t\t\treturn %s;\n",
 					literalForError(method->returnTypeRef).c_str());
-			} 
+			}
 			else
 			{
 				fprintf(out, "\t\t\t\treturn;\n");

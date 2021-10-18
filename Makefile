@@ -4,8 +4,8 @@ WITH_FPC	:= 1
 
 TARGET	:= release
 
-CC	:= gcc
-CXX	:= g++
+CC	:= $(CC)
+CXX	:= $(CXX)
 LD	:= $(CXX)
 
 SRC_DIR		:= src
@@ -76,6 +76,7 @@ $(foreach bdir,$(OBJ_DIRS),$(eval $(call compile,$(bdir))))
 -include $(addsuffix .d,$(basename $(OBJS_CPP)))
 
 $(BIN_DIR)/cloop: \
+	$(OBJ_DIR)/cloop/Action.o \
 	$(OBJ_DIR)/cloop/Expr.o \
 	$(OBJ_DIR)/cloop/Generator.o \
 	$(OBJ_DIR)/cloop/Lexer.o \

@@ -146,6 +146,9 @@ private:
 };
 
 
+void identify(FILE* out, unsigned ident);
+
+
 class JnaGenerator : public FileGenerator
 {
 public:

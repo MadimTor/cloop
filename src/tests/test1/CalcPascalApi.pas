@@ -80,7 +80,7 @@ end;
 	end;
 
 	Status = class(Disposable)
-		const VERSION = 3;
+		const VERSION = 2;
 		const ERROR_1 = Integer(1);
 		const ERROR_2 = Integer($2);
 		const ERROR_12 = Integer(Status.ERROR_1 or Status.ERROR_2);
@@ -123,7 +123,7 @@ end;
 	end;
 
 	Factory = class(Disposable)
-		const VERSION = 6;
+		const VERSION = 2;
 
 		function createStatus(): Status;
 		function createCalculator(status: Status): Calculator;
@@ -151,7 +151,7 @@ end;
 	end;
 
 	Calculator = class(Disposable)
-		const VERSION = 5;
+		const VERSION = 4;
 
 		function sum(status: Status; n1: Integer; n2: Integer): Integer;
 		function getMemory(): Integer;
@@ -176,7 +176,7 @@ end;
 	end;
 
 	Calculator2 = class(Calculator)
-		const VERSION = 8;
+		const VERSION = 6;
 
 		function multiply(status: Status; n1: Integer; n2: Integer): Integer;
 		procedure copyMemory(calculator: Calculator);
@@ -200,88 +200,106 @@ implementation
 
 procedure Disposable.dispose();
 begin
-	DisposableVTable(vTable).dispose(Self);
+		DisposableVTable(vTable).dispose(Self);
 end;
 
 function Status.getCode(): Integer;
 begin
-	Result := StatusVTable(vTable).getCode(Self);
+		Result := StatusVTable(vTable).getCode(Self);
 end;
 
 procedure Status.setCode(code: Integer);
 begin
-	StatusVTable(vTable).setCode(Self, code);
+		StatusVTable(vTable).setCode(Self, code);
 end;
 
 function StatusFactory.createStatus(): Status;
 begin
-	Result := StatusFactoryVTable(vTable).createStatus(Self);
+		Result := StatusFactoryVTable(vTable).createStatus(Self);
 end;
 
 function Factory.createStatus(): Status;
 begin
-	Result := FactoryVTable(vTable).createStatus(Self);
+		Result := FactoryVTable(vTable).createStatus(Self);
 end;
 
 function Factory.createCalculator(status: Status): Calculator;
 begin
-	Result := FactoryVTable(vTable).createCalculator(Self, status);
+		Result := FactoryVTable(vTable).createCalculator(Self, status);
 	CalcException.checkException(status);
 end;
 
 function Factory.createCalculator2(status: Status): Calculator2;
 begin
-	Result := FactoryVTable(vTable).createCalculator2(Self, status);
+		Result := FactoryVTable(vTable).createCalculator2(Self, status);
 	CalcException.checkException(status);
 end;
 
 function Factory.createBrokenCalculator(status: Status): Calculator;
 begin
-	Result := FactoryVTable(vTable).createBrokenCalculator(Self, status);
+		Result := FactoryVTable(vTable).createBrokenCalculator(Self, status);
 	CalcException.checkException(status);
 end;
 
 procedure Factory.setStatusFactory(statusFactory: StatusFactory);
 begin
-	FactoryVTable(vTable).setStatusFactory(Self, statusFactory);
+		FactoryVTable(vTable).setStatusFactory(Self, statusFactory);
 end;
 
 function Calculator.sum(status: Status; n1: Integer; n2: Integer): Integer;
 begin
-	Result := CalculatorVTable(vTable).sum(Self, status, n1, n2);
+		Result := CalculatorVTable(vTable).sum(Self, status, n1, n2);
 	CalcException.checkException(status);
 end;
 
 function Calculator.getMemory(): Integer;
 begin
-	Result := CalculatorVTable(vTable).getMemory(Self);
+		if (vTable.version < 3) then begin
+		Result := Status.ERROR_1;
+	end
+	else begin
+		Result := CalculatorVTable(vTable).getMemory(Self);
+	end;
 end;
 
 procedure Calculator.setMemory(n: Integer);
 begin
-	CalculatorVTable(vTable).setMemory(Self, n);
+		if (vTable.version < 3) then begin
+	end
+	else begin
+		CalculatorVTable(vTable).setMemory(Self, n);
+	end;
 end;
 
 procedure Calculator.sumAndStore(status: Status; n1: Integer; n2: Integer);
 begin
-	CalculatorVTable(vTable).sumAndStore(Self, status, n1, n2);
+		if (vTable.version < 4) then begin
+		CalcException.setVersionError(status, 'Calculator', vTable.version, 4);
+	end
+	else begin
+		CalculatorVTable(vTable).sumAndStore(Self, status, n1, n2);
+	end;
 	CalcException.checkException(status);
 end;
 
 function Calculator2.multiply(status: Status; n1: Integer; n2: Integer): Integer;
 begin
-	Result := Calculator2VTable(vTable).multiply(Self, status, n1, n2);
+		Result := Calculator2VTable(vTable).multiply(Self, status, n1, n2);
 	CalcException.checkException(status);
 end;
 
 procedure Calculator2.copyMemory(calculator: Calculator);
 begin
-	Calculator2VTable(vTable).copyMemory(Self, calculator);
+		Calculator2VTable(vTable).copyMemory(Self, calculator);
 end;
 
 procedure Calculator2.copyMemory2(address: IntegerPtr);
 begin
-	Calculator2VTable(vTable).copyMemory2(Self, address);
+		if (vTable.version < 6) then begin
+	end
+	else begin
+		Calculator2VTable(vTable).copyMemory2(Self, address);
+	end;
 end;
 
 procedure DisposableImpl_disposeDispatcher(this: Disposable); cdecl;
@@ -590,7 +608,7 @@ initialization
 	DisposableImpl_vTable.dispose := @DisposableImpl_disposeDispatcher;
 
 	StatusImpl_vTable := StatusVTable.create;
-	StatusImpl_vTable.version := 3;
+	StatusImpl_vTable.version := 2;
 	StatusImpl_vTable.dispose := @StatusImpl_disposeDispatcher;
 	StatusImpl_vTable.getCode := @StatusImpl_getCodeDispatcher;
 	StatusImpl_vTable.setCode := @StatusImpl_setCodeDispatcher;
@@ -601,7 +619,7 @@ initialization
 	StatusFactoryImpl_vTable.createStatus := @StatusFactoryImpl_createStatusDispatcher;
 
 	FactoryImpl_vTable := FactoryVTable.create;
-	FactoryImpl_vTable.version := 6;
+	FactoryImpl_vTable.version := 2;
 	FactoryImpl_vTable.dispose := @FactoryImpl_disposeDispatcher;
 	FactoryImpl_vTable.createStatus := @FactoryImpl_createStatusDispatcher;
 	FactoryImpl_vTable.createCalculator := @FactoryImpl_createCalculatorDispatcher;
@@ -610,7 +628,7 @@ initialization
 	FactoryImpl_vTable.setStatusFactory := @FactoryImpl_setStatusFactoryDispatcher;
 
 	CalculatorImpl_vTable := CalculatorVTable.create;
-	CalculatorImpl_vTable.version := 5;
+	CalculatorImpl_vTable.version := 4;
 	CalculatorImpl_vTable.dispose := @CalculatorImpl_disposeDispatcher;
 	CalculatorImpl_vTable.sum := @CalculatorImpl_sumDispatcher;
 	CalculatorImpl_vTable.getMemory := @CalculatorImpl_getMemoryDispatcher;
@@ -618,7 +636,7 @@ initialization
 	CalculatorImpl_vTable.sumAndStore := @CalculatorImpl_sumAndStoreDispatcher;
 
 	Calculator2Impl_vTable := Calculator2VTable.create;
-	Calculator2Impl_vTable.version := 8;
+	Calculator2Impl_vTable.version := 6;
 	Calculator2Impl_vTable.dispose := @Calculator2Impl_disposeDispatcher;
 	Calculator2Impl_vTable.sum := @Calculator2Impl_sumDispatcher;
 	Calculator2Impl_vTable.getMemory := @Calculator2Impl_getMemoryDispatcher;
