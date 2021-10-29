@@ -1692,7 +1692,9 @@ void JnaGenerator::generate()
 
 		if (interface->super)
 		{
-			fprintf(out, "\t\t\t\tsuper(obj);\n");
+			fprintf(out, "\t\t\t\tsuper(obj);\n\n");
+			fprintf(out, "\t\t\t\tversion = %s%sIntf.VERSION;\n",
+				prefix.c_str(), escapeName(interface->name).c_str());
 			fprintf(out, "\n");
 		}
 
