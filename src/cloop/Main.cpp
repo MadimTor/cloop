@@ -146,6 +146,17 @@ static void run(int argc, const char* argv[])
 	}
 	else if (outFormat == "json")
 		generator.reset(new JsonGenerator(outFilename, &parser));
+	
+	else if (outFormat == "python")
+		{
+			if (argc < 5)
+				throw runtime_error("Invalid command line parameters for Python output.");
+			
+			string prefix(argv[4]);
+
+			generator.reset(new PythonGenerator(outFilename, &parser, prefix));
+	}
+	
 	else
 		throw runtime_error("Invalid output format.");
 

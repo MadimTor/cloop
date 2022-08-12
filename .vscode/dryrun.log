@@ -1,0 +1,36 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/madim_tor/cloop'
+mkdir -p build/release/cloop
+mkdir -p build/release/tests
+mkdir -p build/release/tests/test1
+mkdir -p output/release/bin
+mkdir -p output/release/lib
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Action.cpp -o build/release/cloop/Action.o
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Expr.cpp -o build/release/cloop/Expr.o
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Generator.cpp -o build/release/cloop/Generator.o
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Lexer.cpp -o build/release/cloop/Lexer.o
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Parser.cpp -o build/release/cloop/Parser.o
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Main.cpp -o build/release/cloop/Main.o
+g++ build/release/cloop/Action.o build/release/cloop/Expr.o build/release/cloop/Generator.o build/release/cloop/Lexer.o build/release/cloop/Parser.o build/release/cloop/Main.o -o output/release/bin/cloop
+ 
+output/release/bin/cloop src/tests/test1/Interface.idl c-header src/tests/test1/CalcCApi.h CALC_C_API_H CALC_I
+output/release/bin/cloop src/tests/test1/Interface.idl c-impl src/tests/test1/CalcCApi.c CalcCApi.h CALC_I
+cc -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter src/tests/test1/CalcCApi.c -o build/release/tests/test1/CalcCApi.o
+cc -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter src/tests/test1/CTest.c -o build/release/tests/test1/CTest.o
+g++ build/release/tests/test1/CalcCApi.o build/release/tests/test1/CTest.o -shared -ldl -o output/release/bin/test1-c.so
+g++ build/release/tests/test1/CalcCApi.o build/release/tests/test1/CTest.o -ldl -o output/release/bin/test1-c
+output/release/bin/cloop src/tests/test1/Interface.idl c++ src/tests/test1/CalcCppApi.h CALC_CPP_API_H calc I
+g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/tests/test1/CppTest.cpp -o build/release/tests/test1/CppTest.o
+g++ build/release/tests/test1/CppTest.o -shared -ldl -o output/release/bin/test1-cpp.so
+g++ build/release/tests/test1/CppTest.o -ldl -o output/release/bin/test1-cpp
+ 
+output/release/bin/cloop src/tests/test1/Interface.idl pascal src/tests/test1/CalcPascalApi.pas CalcPascalApi \
+	--uses "SysUtils" \
+	--interfaceFile src/tests/test1/CalcPascalApi.interface.pas \
+	--implementationFile src/tests/test1/CalcPascalApi.implementation.pas \
+	--exceptionClass CalcException
+fpc -Mdelphi -fPIC -FUbuild/release/tests/test1 -ooutput/release/bin/test1-pascal.so src/tests/test1/PascalLibrary.dpr
+fpc -Mdelphi -fPIC -FUbuild/release/tests/test1 -ooutput/release/bin/test1-pascal src/tests/test1/PascalTest.dpr
+output/release/bin/cloop src/tests/test1/Interface.idl jna src/tests/test1/java/src/main/java/com/github/asfernandes/cloop/tests/test1/ICalc.java com.github.asfernandes.cloop.tests.test1.ICalc CalcException I
+make: Leaving directory '/home/madim_tor/cloop'
+ 

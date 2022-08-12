@@ -188,4 +188,24 @@ private:
 };
 
 
+class PythonGenerator : public FileGenerator
+{
+public: 
+	PythonGenerator(const std::string& filename, Parser* parser, const std::string& prefix);
+
+public:
+	virtual void generate();
+
+private:
+	std::string convertType(const TypeRef& typeRef);
+	std::string escapeName(const std::string& name);
+
+
+private:
+	Parser* parser;
+	
+
+};
+
+
 #endif	// CLOOP_GENERATOR_H

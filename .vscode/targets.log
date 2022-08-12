@@ -1,0 +1,824 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-koji-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Fri Aug 12 12:13:37 2022
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = mate
+# environment
+VSCODE_CODE_CACHE_PATH = /home/madim_tor/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+# default
+.SHELLFLAGS := -c
+# environment
+PROVIDE_FULLSTACK_ACTION = true
+# environment
+XDG_SESSION_CLASS = user
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+MODULEPATH = /etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
+# makefile (from 'Makefile', line 5)
+TARGET := release
+# environment
+GTK3_MODULES = xapp-gtk3-module
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/gdm/auth-for-madim_tor-RS0JQ1/database
+# environment
+GDMSESSION = mate
+# environment
+XMODIFIERS = @im=none
+# makefile
+CURDIR := /home/madim_tor/cloop
+# makefile
+SHELL = /bin/sh
+# environment
+GDM_LANG = ru_RU.UTF-8
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{"*":"ru"},"_languagePackId":"4165c719fdf7a78444ed970b4565033b.ru","_translationsConfigFile":"/home/madim_tor/.config/Code/clp/4165c719fdf7a78444ed970b4565033b.ru/tcf.json","_cacheRoot":"/home/madim_tor/.config/Code/clp/4165c719fdf7a78444ed970b4565033b.ru","_resolvedLanguagePackCoreLocation":"/home/madim_tor/.config/Code/clp/4165c719fdf7a78444ed970b4565033b.ru/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/home/madim_tor/.config/Code/clp/4165c719fdf7a78444ed970b4565033b.ru/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# environment
+QT_AUTO_SCREEN_SCALE_FACTOR = 0
+# environment
+LESSOPEN = ||/usr/bin/lesspipe.sh %s
+# environment
+GTK_OVERLAY_SCROLLING = 0
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from 'Makefile', line 19)
+LIB_DIR := output/release/lib
+# automatic
+@F = $(notdir $@)
+# environment
+HISTCONTROL = ignoredups
+# environment
+USERNAME = madim_tor
+# makefile (from 'Makefile', line 17)
+OBJ_DIR := build/release
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+QT_SCALE_FACTOR = 1
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d889f741-594e-4ba0-9d7e-e8a92682413e.sock
+# environment
+VSCODE_CWD = /home/madim_tor
+# environment
+QT_STYLE_OVERRIDE = Fusion
+# default
+MAKE_HOST := x86_64-koji-linux-gnu
+# environment
+PATH = /home/madim_tor/.local/bin:/home/madim_tor/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
+# makefile (from 'Makefile', line 9)
+LD := 
+# environment
+GOLANG_EXECUTABLE = go
+# environment
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1646,unix/unix:/tmp/.ICE-unix/1646
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+MODULES_CMD = /usr/share/Modules/libexec/modulecmd.tcl
+# makefile (from 'Makefile', line 24)
+SRCS_C :=   src/tests/test1/CTest.c src/tests/test1/CalcCApi.c
+# environment
+THREE_SCALE_USER_TOKEN = 207c527cfc2a6b8dcf4fa43ad7a976da
+# environment
+define BASH_FUNC_scl%%
+() {  if [ "$1" = "load" -o "$1" = "unload" ]; then
+ eval "module $@";
+ else
+ /usr/bin/scl "$@";
+ fi
+}
+endef
+# makefile (from 'Makefile', line 3)
+WITH_FPC := 1
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink guile load
+# makefile (from 'Makefile', line 1)
+MODULES := cloop tests tests/test1
+# environment
+UUID = e3b1b014-e98f-4ff7-938e-3ca1c84423c9
+# environment
+XDG_SESSION_DESKTOP = mate
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4054
+# automatic
+%F = $(notdir $%)
+# environment
+KDEDIRS = /usr
+# environment
+DISPLAY = :0
+# environment
+GTK_IM_MODULE = xim
+# environment
+IMSETTINGS_INTEGRATE_DESKTOP = yes
+# makefile (from 'Makefile', line 21)
+SRC_DIRS := src/cloop src/tests src/tests/test1
+# environment
+PWD = /home/madim_tor/cloop
+# environment
+QT_QPA_PLATFORMTHEME = gtk2
+# default
+.LOADED := 
+# environment
+XDG_SEAT = seat0
+# environment
+SSH_AGENT_PID = 1806
+# environment
+define BASH_FUNC_ml%%
+() {  module ml "$@"
+}
+endef
+# makefile (from 'Makefile', line 25)
+SRCS_CPP := src/cloop/Action.cpp src/cloop/Expr.cpp src/cloop/Parser.cpp src/cloop/Main.cpp src/cloop/Lexer.cpp src/cloop/Generator.cpp  src/tests/test1/CppTest.cpp
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = MATE
+# environment
+MANPATH = :
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/madim_tor
+# environment
+MODULEPATH_modshare = /usr/share/modulefiles:1:/usr/share/Modules/modulefiles:1:/etc/modulefiles:1
+# environment
+MODULESHOME = /usr/share/Modules
+# environment
+LOGNAME = madim_tor
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+TELEMETRY_ID = 834a9e48-ade4-4e94-a057-1cf1edf98c6e
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+MAKE_VERSION := 4.2.1
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = localhost.localdomain
+# environment
+XDG_VTNR = 1
+# makefile (from 'Makefile', line 32)
+FPC_FLAGS := -Mdelphi -fPIC
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = xim
+# environment
+SHLVL = 0
+# makefile (from 'Makefile', line 45)
+define compile
+$1/%.o: %.c
+	$(CC) -c $$(C_FLAGS) $$< -o $$@
+
+$1/%.o: %.cpp
+	$(CXX) -c $$(CXX_FLAGS) $$< -o $$@
+endef
+# makefile (from 'Makefile', line 7)
+CC := 
+# makefile (from 'Makefile', line 35)
+CXX_FLAGS := -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3
+# makefile (from 'Makefile', line 12)
+BUILD_DIR := build
+# environment
+define BASH_FUNC_switchml%%
+() {  typeset swfound=1;
+ if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then
+ typeset swname='main';
+ if [ -e /usr/share/Modules/libexec/modulecmd.tcl ]; then
+ typeset swfound=0;
+ unset MODULES_USE_COMPAT_VERSION;
+ fi;
+ else
+ typeset swname='compatibility';
+ if [ -e /usr/share/Modules/libexec/modulecmd-compat ]; then
+ typeset swfound=0;
+ MODULES_USE_COMPAT_VERSION=1;
+ export MODULES_USE_COMPAT_VERSION;
+ fi;
+ fi;
+ if [ $swfound -eq 0 ]; then
+ echo "Switching to Modules $swname version";
+ source /usr/share/Modules/init/bash;
+ else
+ echo "Cannot switch to Modules $swname version, command not found";
+ return 1;
+ fi
+}
+endef
+# environment
+XDG_SESSION_ID = 2
+# environment
+USER = madim_tor
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = MATE
+# environment
+MODULES_RUN_QUARANTINE = LD_LIBRARY_PATH LD_PRELOAD
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# makefile (from 'Makefile', line 13)
+OUT_DIR := output
+# environment
+SAL_USE_VCLPLUGIN = qt5
+# default
+MAKE_COMMAND := make
+# environment
+UTM_SOURCE = vscode
+# makefile (from 'Makefile', line 15)
+EXE_EXT := 
+# default
+.VARIABLES := 
+# environment
+IMSETTINGS_MODULE = X compose table
+# automatic
+*F = $(notdir $*)
+# makefile (from 'Makefile', line 27)
+OBJS_C := build/release/tests/test1/CTest.o build/release/tests/test1/CalcCApi.o
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-7010bb95-1.68.1-main.sock
+# environment
+define BASH_FUNC_module%%
+() {  unset _mlshdbg;
+ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
+ case "$-" in 
+ *v*x*)
+ set +vx;
+ _mlshdbg='vx'
+ ;;
+ *v*)
+ set +v;
+ _mlshdbg='v'
+ ;;
+ *x*)
+ set +x;
+ _mlshdbg='x'
+ ;;
+ *)
+ _mlshdbg=''
+ ;;
+ esac;
+ fi;
+ unset _mlre _mlIFS;
+ if [ -n "${IFS+x}" ]; then
+ _mlIFS=$IFS;
+ fi;
+ IFS=' ';
+ for _mlv in ${MODULES_RUN_QUARANTINE:-};
+ do
+ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
+ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
+ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
+ fi;
+ _mlrv="MODULES_RUNENV_${_mlv}";
+ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
+ fi;
+ done;
+ if [ -n "${_mlre:-}" ]; then
+ eval `eval ${_mlre} /usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash '"$@"'`;
+ else
+ eval `/usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash "$@"`;
+ fi;
+ _mlstatus=$?;
+ if [ -n "${_mlIFS+x}" ]; then
+ IFS=$_mlIFS;
+ else
+ unset IFS;
+ fi;
+ unset _mlre _mlv _mlrv _mlIFS;
+ if [ -n "${_mlshdbg:-}" ]; then
+ set -$_mlshdbg;
+ fi;
+ unset _mlshdbg;
+ return $_mlstatus
+}
+endef
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MAIL = /var/spool/mail/madim_tor
+# environment
+LOADEDMODULES = 
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+RECOMMENDER_API_URL = https://gw.api.openshift.io//api/v2
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# environment
+NO_AT_BRIDGE = 1
+# environment
+S_COLORS = auto
+# environment
+VSCODE_PIPE_LOGGING = true
+# makefile (from 'Makefile', line 22)
+OBJ_DIRS := build/release/cloop build/release/tests build/release/tests/test1
+# default
+MAKEFILES := 
+# environment
+SAL_VCL_QT5_USE_CAIRO = 1
+# makefile (from 'Makefile', line 11)
+SRC_DIR := src
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 8)
+CXX := 
+# makefile (from 'Makefile', line 30)
+C_FLAGS := -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter
+# makefile (from 'Makefile', line 18)
+BIN_DIR := output/release/bin
+# makefile (from 'Makefile', line 28)
+OBJS_CPP := build/release/cloop/Action.o build/release/cloop/Expr.o build/release/cloop/Parser.o build/release/cloop/Main.o build/release/cloop/Lexer.o build/release/cloop/Generator.o build/release/tests/test1/CppTest.o
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+HISTSIZE = 1000
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+MATE_DESKTOP_SESSION_ID = this-is-deprecated
+# environment
+WINDOWPATH = 1
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# environment
+INSIDE_CAJA_PYTHON = 
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /home/madim_tor/Рабочий стол/VS Code.desktop
+ 
+# environment
+LANG = C
+# environment
+TERM = dumb
+# environment
+VSCODE_PID = 4054
+# makefile (from 'Makefile', line 14)
+SHRLIB_EXT := .so
+# variable set hash-table stats:
+# Load=148/1024=14%, Rehash=0, Collisions=25/292=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2051, inode 4457193): 8 files, no impossibilities.
+# src/tests (device 2051, inode 4457253): 3 files, no impossibilities.
+# src/tests/test1 (device 2051, inode 4457254): 23 files, no impossibilities.
+# src/cloop (device 2051, inode 4457241): 15 files, no impossibilities.
+
+# 49 files, no impossibilities in 4 directories.
+
+# Implicit Rules
+
+build/release/cloop/%.o: %.c
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(C_FLAGS) $< -o $@
+
+build/release/cloop/%.o: %.cpp
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
+
+build/release/tests/%.o: %.c
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(C_FLAGS) $< -o $@
+
+build/release/tests/%.o: %.cpp
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
+
+build/release/tests/test1/%.o: %.c
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(C_FLAGS) $< -o $@
+
+build/release/tests/test1/%.o: %.cpp
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
+
+# 6 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+build/release/tests/test1/CalcCApi.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+mkdirs: build/release/cloop build/release/tests build/release/tests/test1 output/release/bin output/release/lib
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+all: mkdirs output/release/bin/cloop output/release/bin/test1-c.so output/release/bin/test1-c output/release/bin/test1-cpp.so output/release/bin/test1-cpp output/release/bin/test1-pascal.so output/release/bin/test1-pascal src/tests/test1/java/src/main/java/com/github/asfernandes/cloop/tests/test1/ICalc.java
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+src/tests/test1/CalcCApi.c: output/release/bin/cloop src/tests/test1/Interface.idl src/tests/test1/CalcCApi.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 92):
+	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl c-impl $@ CalcCApi.h CALC_I
+
+# Not a target:
+src/tests/test1/CalcPascalApi.interface.pas:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all mkdirs clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/cloop/Main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/tests/test1/PascalLibrary.dpr:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+output/release/bin/cloop: build/release/cloop/Action.o build/release/cloop/Expr.o build/release/cloop/Generator.o build/release/cloop/Lexer.o build/release/cloop/Parser.o build/release/cloop/Main.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 86):
+	$(LD) $^ -o $@
+
+output/release/bin/test1-c: build/release/tests/test1/CalcCApi.o build/release/tests/test1/CTest.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 123):
+	$(LD) $^ -ldl -o $@
+
+src/tests/test1/CalcPascalApi.pas: output/release/bin/cloop src/tests/test1/Interface.idl src/tests/test1/CalcPascalApi.interface.pas src/tests/test1/CalcPascalApi.implementation.pas
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 101):
+	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl pascal $@ CalcPascalApi \
+		--uses "SysUtils" \
+		--interfaceFile $(SRC_DIR)/tests/test1/CalcPascalApi.interface.pas \
+		--implementationFile $(SRC_DIR)/tests/test1/CalcPascalApi.implementation.pas \
+		--exceptionClass CalcException
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/tests/test1/CppTest.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+build/release/cloop/Lexer.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/tests/test1/CalcCApi.h: output/release/bin/cloop src/tests/test1/Interface.idl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 89):
+	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl c-header $@ CALC_C_API_H CALC_I
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.209017804
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+build/release/cloop/Generator.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+output/release/bin/test1-pascal.so: src/tests/test1/PascalClasses.pas src/tests/test1/PascalLibrary.dpr src/tests/test1/CalcPascalApi.pas
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 141):
+	fpc $(FPC_FLAGS) -FU$(OBJ_DIR)/tests/test1 -o$(BIN_DIR)/test1-pascal$(SHRLIB_EXT) $(SRC_DIR)/tests/test1/PascalLibrary.dpr
+
+# Not a target:
+build/release/cloop/Action.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+build/release/tests/test1/CalcCApi.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/tests/test1/CTest.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+output/release/bin/test1-cpp: build/release/tests/test1/CppTest.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 133):
+	$(LD) $^ -ldl -o $@
+
+ 
+src/tests/test1/java/src/main/java/com/github/asfernandes/cloop/tests/test1/ICalc.java: output/release/bin/cloop src/tests/test1/Interface.idl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 109):
+	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl jna $@ com.github.asfernandes.cloop.tests.test1.ICalc CalcException I
+
+# Not a target:
+build/release/cloop/Expr.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+build/release/cloop:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/release/cloop
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  recipe to execute (from 'Makefile', line 68):
+	@mkdir -p $@
+
+# Not a target:
+src/tests/test1/Interface.idl:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/tests/test1/CalcCppApi.h: output/release/bin/cloop src/tests/test1/Interface.idl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 95):
+	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl c++ $@ CALC_CPP_API_H calc I
+
+src/tests/test1/CppTest.cpp: src/tests/test1/CalcCppApi.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/tests/test1/CppTest.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/tests/test1/CalcPascalApi.implementation.pas:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+output/release/bin/test1-c.so: build/release/tests/test1/CalcCApi.o build/release/tests/test1/CTest.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 117):
+	$(LD) $^ -shared -ldl -o $@
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/cloop/Generator.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/tests/test1/PascalClasses.pas:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/cloop/Action.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/release/cloop/Lexer.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+build/release/cloop/Parser.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+build/release/tests/test1/CTest.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/tests/test1/PascalTest.dpr:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 71):
+	@rm -rf $(BUILD_DIR) $(OUT_DIR)
+
+output/release/bin:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	@mkdir -p $@
+
+# Not a target:
+build/release/cloop/Expr.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+output/release/bin/test1-cpp.so: build/release/tests/test1/CppTest.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 128):
+	$(LD) $^ -shared -ldl -o $@
+
+# Not a target:
+build/release/cloop/Main.d:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+build/release/tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	@mkdir -p $@
+
+output/release/lib:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	@mkdir -p $@
+
+# Not a target:
+build/release/cloop/Parser.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+output/release/bin/test1-pascal: src/tests/test1/PascalClasses.pas src/tests/test1/PascalTest.dpr src/tests/test1/CalcPascalApi.pas
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 150):
+	fpc $(FPC_FLAGS) -FU$(OBJ_DIR)/tests/test1 -o$(BIN_DIR)/test1-pascal$(EXE_EXT) $(SRC_DIR)/tests/test1/PascalTest.dpr
+
+build/release/tests/test1:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	@mkdir -p $@
+ 
+
+# files hash-table stats:
+# Load=49/1024=5%, Rehash=0, Collisions=2/134=1%
+# VPATH Search Paths
+
+vpath %.c src/cloop:src/tests:src/tests/test1
+vpath %.cpp src/cloop:src/tests:src/tests/test1
+
+# 2 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 101 / storage = 2132 B / avg = 21 B
+# current buf: size = 8162 B / used = 2132 B / count = 101 / avg = 21 B
+
+# strcache performance: lookups = 193 / hit rate = 47%
+# hash-table stats:
+# Load=101/8192=1%, Rehash=0, Collisions=4/193=2%
+# Finished Make data base on Fri Aug 12 12:13:37 2022
+
+ 

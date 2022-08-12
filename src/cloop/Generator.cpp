@@ -2254,3 +2254,148 @@ string JsonGenerator::convertType(const TypeRef& typeRef)
 		", \"isConst\": " + (typeRef.isConst ? "true" : "false") +
 		" }";
 }
+
+
+
+
+
+//--------------------------------------
+ //python generator
+
+PythonGenerator::PythonGenerator(const string& filename, Parser* parser, const string& prefix)
+	: FileGenerator(filename, prefix),
+	  parser(parser)
+{
+}
+
+
+
+void PythonGenerator::generate()
+{
+	fprintf(out, "// %s\n\n", AUTOGEN_MSG);
+
+	fprintf(out, "from __future__ import annotations\n");
+	fprintf(out, "from typing import Union, Any, Optional, ByteString\n");
+	fprintf(out, "import sys\n"); 
+	fprintf(out, "import threading\n"); 
+	fprintf(out, "import datetime\n"); 
+	fprintf(out, "from warnings import warn\n");  
+	fprintf(out, "import ctypes"); 
+	 
+	fprintf(out, "\n\n"); 
+
+
+
+
+	for (vector<Interface*>::iterator i = parser->interfaces.begin();
+		 i != parser->interfaces.end();
+		 ++i)
+	{
+		if (i != parser->interfaces.begin())
+			fprintf(out, "\n");
+
+		Interface* interface = *i;
+
+		deque<Method*> methods;
+		
+
+		for (Interface* p = interface; p; p = p->super)
+			methods.insert(methods.begin(), p->methods.begin(), p->methods.end());
+
+
+		fprintf(out, "class %s%s",
+			prefix.c_str(), escapeName(interface->name).c_str());
+
+		if (interface->super)
+		{
+			fprintf(out, "(%s%s):",
+				prefix.c_str(), escapeName(interface->super->name).c_str());
+		}
+		else
+			fprintf(out, "():");
+
+		fprintf(out, "\n");
+		fprintf(out, "\t\n");
+
+		fprintf(out, "\tVERSION = %d\n\n", interface->version);
+
+
+		for (deque<Method*>::iterator j = methods.begin(); j != methods.end(); ++j)
+		{
+			Method* method = *j;
+
+			fprintf(out, "\tdef %s(self", method->name.c_str());
+
+			for (vector<Parameter*>::iterator k = method->parameters.begin();
+				 k != method->parameters.end();
+				 ++k)
+			{
+				Parameter* parameter = *k;
+
+				fprintf(out, ", %s", parameter->name.c_str());
+			}
+
+			fprintf(out, "):\n\n");
+		}
+
+
+		
+	}
+
+}
+
+string PythonGenerator::convertType(const TypeRef& typeRef)
+{
+	string name;
+
+	switch (typeRef.token.type)
+	{
+		case Token::TYPE_BOOLEAN:
+			name = "bool";
+			break;
+
+		case Token::TYPE_INT:
+			name = "int";
+			break;
+
+		case Token::TYPE_INT64:
+			name = "int";
+			break;
+
+		case Token::TYPE_INTPTR:
+			name = "int";
+			break;
+
+		case Token::TYPE_STRING:
+			name = "str";
+			break;
+
+		case Token::TYPE_UCHAR:
+			name = "char";
+			break;
+
+		case Token::TYPE_UINT:
+			name = "int";
+			break;
+
+		case Token::TYPE_UINT64:
+			name = "int";
+			break;
+
+		case Token::TYPE_IDENTIFIER:
+			name = (typeRef.type == BaseType::TYPE_INTERFACE ? prefix : "") + typeRef.token.text;
+			break;
+
+		default:
+			name = typeRef.token.text;
+			break;
+	}
+
+	return name;
+}
+
+string PythonGenerator::escapeName(const string& name)
+{
+	//// TODO: Create a table of keywords.
+	return name;
+}
