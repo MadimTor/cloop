@@ -12,7 +12,6 @@ g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Lexer.c
 g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Parser.cpp -o build/release/cloop/Parser.o
 g++ -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter -O3 src/cloop/Main.cpp -o build/release/cloop/Main.o
 g++ build/release/cloop/Action.o build/release/cloop/Expr.o build/release/cloop/Generator.o build/release/cloop/Lexer.o build/release/cloop/Parser.o build/release/cloop/Main.o -o output/release/bin/cloop
- 
 output/release/bin/cloop src/tests/test1/Interface.idl c-header src/tests/test1/CalcCApi.h CALC_C_API_H CALC_I
 output/release/bin/cloop src/tests/test1/Interface.idl c-impl src/tests/test1/CalcCApi.c CalcCApi.h CALC_I
 cc -c -ggdb -fPIC -MMD -MP -W -Wall -Wno-unused-parameter src/tests/test1/CalcCApi.c -o build/release/tests/test1/CalcCApi.o

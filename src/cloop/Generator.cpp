@@ -2274,13 +2274,13 @@ void PythonGenerator::generate()
 {
 	fprintf(out, "// %s\n\n", AUTOGEN_MSG);
 
-	fprintf(out, "from __future__ import annotations\n");
-	fprintf(out, "from typing import Union, Any, Optional, ByteString\n");
-	fprintf(out, "import sys\n"); 
-	fprintf(out, "import threading\n"); 
-	fprintf(out, "import datetime\n"); 
-	fprintf(out, "from warnings import warn\n");  
-	fprintf(out, "import ctypes"); 
+	// fprintf(out, "from __future__ import annotations\n");
+	// fprintf(out, "from typing import Union, Any, Optional, ByteString\n");
+	// fprintf(out, "import sys\n"); 
+	// fprintf(out, "import threading\n"); 
+	// fprintf(out, "import datetime\n"); 
+	// fprintf(out, "from warnings import warn\n");  
+	// fprintf(out, "import ctypes"); 
 	 
 	fprintf(out, "\n\n"); 
 
@@ -2318,6 +2318,25 @@ void PythonGenerator::generate()
 		fprintf(out, "\t\n");
 
 		fprintf(out, "\tVERSION = %d\n\n", interface->version);
+
+
+
+		for (vector<Constant*>::iterator j = interface->constants.begin();
+			 j != interface->constants.end();
+			 ++j)
+		{
+			Constant* constant = *j;
+
+			fprintf(out, "\t%s = %s(%s)\n",
+				constant->name.c_str(),
+				convertType(constant->typeRef).c_str(),
+				constant->expr->generate(LANGUAGE_PYTHON, prefix).c_str());
+		}
+
+		if (!interface->constants.empty())
+			fprintf(out, "\n");
+
+
 
 
 		for (deque<Method*>::iterator j = methods.begin(); j != methods.end(); ++j)

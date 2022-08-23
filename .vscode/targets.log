@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Fri Aug 12 12:13:37 2022
+# Make data base, printed on Tue Aug 23 13:30:20 2022
 
 # Variables
 
@@ -42,7 +41,7 @@ GTK3_MODULES = xapp-gtk3-module
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-XAUTHORITY = /run/gdm/auth-for-madim_tor-RS0JQ1/database
+XAUTHORITY = /run/gdm/auth-for-madim_tor-0975Q1/database
 # environment
 GDMSESSION = mate
 # environment
@@ -63,8 +62,8 @@ QT_AUTO_SCREEN_SCALE_FACTOR = 0
 LESSOPEN = ||/usr/bin/lesspipe.sh %s
 # environment
 GTK_OVERLAY_SCROLLING = 0
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
+# makefile (from 'build/release/tests/test1/CppTest.d', line 1)
+MAKEFILE_LIST :=  Makefile build/release/tests/test1/CTest.d build/release/tests/test1/CalcCApi.d build/release/cloop/Action.d build/release/cloop/Expr.d build/release/cloop/Parser.d build/release/cloop/Main.d build/release/cloop/Lexer.d build/release/cloop/Generator.d build/release/tests/test1/CppTest.d
 # makefile (from 'Makefile', line 19)
 LIB_DIR := output/release/lib
 # automatic
@@ -82,7 +81,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 QT_SCALE_FACTOR = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d889f741-594e-4ba0-9d7e-e8a92682413e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d91d0021-7a4b-476b-8e75-216d5b1c1fe0.sock
 # environment
 VSCODE_CWD = /home/madim_tor
 # environment
@@ -96,7 +95,7 @@ LD :=
 # environment
 GOLANG_EXECUTABLE = go
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1646,unix/unix:/tmp/.ICE-unix/1646
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1643,unix/unix:/tmp/.ICE-unix/1643
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -131,7 +130,7 @@ XDG_SESSION_DESKTOP = mate
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4054
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3555
 # automatic
 %F = $(notdir $%)
 # environment
@@ -153,7 +152,7 @@ QT_QPA_PLATFORMTHEME = gtk2
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1806
+SSH_AGENT_PID = 1803
 # environment
 define BASH_FUNC_ml%%
 () {  module ml "$@"
@@ -359,6 +358,7 @@ OBJ_DIRS := build/release/cloop build/release/tests build/release/tests/test1
 MAKEFILES := 
 # environment
 SAL_VCL_QT5_USE_CAIRO = 1
+ 
 # makefile (from 'Makefile', line 11)
 SRC_DIR := src
 # automatic
@@ -393,17 +393,16 @@ WINDOWPATH = 1
 INSIDE_CAJA_PYTHON = 
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /home/madim_tor/Рабочий стол/VS Code.desktop
- 
 # environment
 LANG = C
 # environment
 TERM = dumb
 # environment
-VSCODE_PID = 4054
+VSCODE_PID = 3555
 # makefile (from 'Makefile', line 14)
 SHRLIB_EXT := .so
 # variable set hash-table stats:
-# Load=148/1024=14%, Rehash=0, Collisions=25/292=9%
+# Load=148/1024=14%, Rehash=0, Collisions=26/315=8%
 
 # Pattern-specific Variable Values
 
@@ -411,12 +410,12 @@ SHRLIB_EXT := .so
 
 # Directories
 
-# . (device 2051, inode 4457193): 8 files, no impossibilities.
+# . (device 2051, inode 4457193): 11 files, no impossibilities.
 # src/tests (device 2051, inode 4457253): 3 files, no impossibilities.
-# src/tests/test1 (device 2051, inode 4457254): 23 files, no impossibilities.
+# src/tests/test1 (device 2051, inode 4457254): 24 files, no impossibilities.
 # src/cloop (device 2051, inode 4457241): 15 files, no impossibilities.
 
-# 49 files, no impossibilities in 4 directories.
+# 53 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
@@ -451,18 +450,16 @@ build/release/tests/test1/%.o: %.cpp
 # Not a target:
 build/release/tests/test1/CalcCApi.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:30.582497428
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 mkdirs: build/release/cloop build/release/tests build/release/tests/test1 output/release/bin output/release/lib
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  Successfully updated.
 
 all: mkdirs output/release/bin/cloop output/release/bin/test1-c.so output/release/bin/test1-c output/release/bin/test1-cpp.so output/release/bin/test1-cpp output/release/bin/test1-pascal.so output/release/bin/test1-pascal src/tests/test1/java/src/main/java/com/github/asfernandes/cloop/tests/test1/ICalc.java
 #  Phony target (prerequisite of .PHONY).
@@ -472,20 +469,22 @@ all: mkdirs output/release/bin/cloop output/release/bin/test1-c.so output/releas
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
 
 src/tests/test1/CalcCApi.c: output/release/bin/cloop src/tests/test1/Interface.idl src/tests/test1/CalcCApi.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:30.225514894
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 92):
 	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl c-impl $@ CalcCApi.h CALC_I
 
 # Not a target:
 src/tests/test1/CalcPascalApi.interface.pas:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.469217768
+#  File has been updated.
+#  Successfully updated.
 
 .PHONY: all mkdirs clean
 #  Implicit rule search has not been done.
@@ -493,41 +492,68 @@ src/tests/test1/CalcPascalApi.interface.pas:
 #  File has not been updated.
 
 # Not a target:
-build/release/cloop/Main.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/cloop/Main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:18:06.384085647
+#  File has been updated.
+#  Successfully updated.
+
+build/release/cloop/Main.o: src/cloop/Main.cpp src/cloop/Main.cpp src/cloop/Lexer.h src/cloop/Parser.h src/cloop/Action.h src/cloop/Expr.h src/cloop/Generator.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Main'
+#  Last modified 2022-08-12 12:20:30.047523602
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
 
 # Not a target:
 src/tests/test1/PascalLibrary.dpr:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.470217681
+#  File has been updated.
+#  Successfully updated.
 
 output/release/bin/cloop: build/release/cloop/Action.o build/release/cloop/Expr.o build/release/cloop/Generator.o build/release/cloop/Lexer.o build/release/cloop/Parser.o build/release/cloop/Main.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:30.221515089
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 86):
 	$(LD) $^ -o $@
 
+src/cloop/Lexer.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.212017556
+#  File has been updated.
+#  Successfully updated.
+
 output/release/bin/test1-c: build/release/tests/test1/CalcCApi.o build/release/tests/test1/CTest.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:30.893482214
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 123):
 	$(LD) $^ -ldl -o $@
 
 src/tests/test1/CalcPascalApi.pas: output/release/bin/cloop src/tests/test1/Interface.idl src/tests/test1/CalcPascalApi.interface.pas src/tests/test1/CalcPascalApi.implementation.pas
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:31.51745171
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 101):
 	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl pascal $@ CalcPascalApi \
 		--uses "SysUtils" \
 		--interfaceFile $(SRC_DIR)/tests/test1/CalcPascalApi.interface.pas \
 		--implementationFile $(SRC_DIR)/tests/test1/CalcPascalApi.implementation.pas \
 		--exceptionClass CalcException
+
+# Not a target:
+src/cloop/Lexer.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.212017556
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .SUFFIXES:
@@ -538,20 +564,24 @@ src/tests/test1/CalcPascalApi.pas: output/release/bin/cloop src/tests/test1/Inte
 # Not a target:
 build/release/tests/test1/CppTest.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:31.308461925
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
-# Not a target:
-build/release/cloop/Lexer.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+build/release/cloop/Lexer.o: src/cloop/Lexer.cpp src/cloop/Lexer.cpp src/cloop/Lexer.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Lexer'
+#  Last modified 2022-08-12 12:20:28.211613542
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
 
 src/tests/test1/CalcCApi.h: output/release/bin/cloop src/tests/test1/Interface.idl
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:30.224514942
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 89):
 	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl c-header $@ CALC_C_API_H CALC_I
 
@@ -565,45 +595,76 @@ Makefile:
 # Not a target:
 build/release/cloop/Generator.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:27.321657198
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 output/release/bin/test1-pascal.so: src/tests/test1/PascalClasses.pas src/tests/test1/PascalLibrary.dpr src/tests/test1/CalcPascalApi.pas
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := output/release/bin/test1-pascal.so
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := src/tests/test1/PascalClasses.pas src/tests/test1/PascalLibrary.dpr src/tests/test1/CalcPascalApi.pas
+# automatic
+# | := 
+# automatic
+# < := src/tests/test1/PascalClasses.pas
+# automatic
+# ^ := src/tests/test1/PascalClasses.pas src/tests/test1/PascalLibrary.dpr src/tests/test1/CalcPascalApi.pas
+# automatic
+# ? := src/tests/test1/PascalClasses.pas src/tests/test1/PascalLibrary.dpr src/tests/test1/CalcPascalApi.pas
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
 #  recipe to execute (from 'Makefile', line 141):
 	fpc $(FPC_FLAGS) -FU$(OBJ_DIR)/tests/test1 -o$(BIN_DIR)/test1-pascal$(SHRLIB_EXT) $(SRC_DIR)/tests/test1/PascalLibrary.dpr
 
 # Not a target:
 build/release/cloop/Action.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:22.850877061
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
-# Not a target:
-build/release/tests/test1/CalcCApi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+build/release/tests/test1/CalcCApi.o: src/tests/test1/CalcCApi.c src/tests/test1/CalcCApi.c src/tests/test1/CalcCApi.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'CalcCApi'
+#  Last modified 2022-08-12 12:20:30.59349689
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(C_FLAGS) $< -o $@
 
 # Not a target:
 build/release/tests/test1/CTest.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+ 
+#  Last modified 2022-08-12 12:20:30.687492292
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 output/release/bin/test1-cpp: build/release/tests/test1/CppTest.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:31.512451955
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 133):
 	$(LD) $^ -ldl -o $@
 
- 
+# Not a target:
+src/tests/test1/CTest.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.468217855
+#  File has been updated.
+#  Successfully updated.
+
 src/tests/test1/java/src/main/java/com/github/asfernandes/cloop/tests/test1/ICalc.java: output/release/bin/cloop src/tests/test1/Interface.idl
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -614,73 +675,81 @@ src/tests/test1/java/src/main/java/com/github/asfernandes/cloop/tests/test1/ICal
 # Not a target:
 build/release/cloop/Expr.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:23.874826622
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 build/release/cloop:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:30.014525216
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := build/release/cloop
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 68):
 	@mkdir -p $@
 
+src/cloop/Generator.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:19:14.713350139
+#  File has been updated.
+#  Successfully updated.
+
 # Not a target:
 src/tests/test1/Interface.idl:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.470217681
+#  File has been updated.
+#  Successfully updated.
 
 src/tests/test1/CalcCppApi.h: output/release/bin/cloop src/tests/test1/Interface.idl
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:30.897482018
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 95):
 	$(BIN_DIR)/cloop $(SRC_DIR)/tests/test1/Interface.idl c++ $@ CALC_CPP_API_H calc I
 
 src/tests/test1/CppTest.cpp: src/tests/test1/CalcCppApi.h
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.470217681
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
-build/release/tests/test1/CppTest.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+build/release/tests/test1/CppTest.o: src/tests/test1/CppTest.cpp src/tests/test1/CppTest.cpp src/tests/test1/CalcCppApi.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'CppTest'
+#  Last modified 2022-08-12 12:20:31.36645909
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
+
+src/cloop/Action.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.210017721
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/tests/test1/CalcPascalApi.implementation.pas:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.469217768
+#  File has been updated.
+#  Successfully updated.
 
 output/release/bin/test1-c.so: build/release/tests/test1/CalcCApi.o build/release/tests/test1/CTest.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:30.817485932
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 117):
 	$(LD) $^ -shared -ldl -o $@
+
+# Not a target:
+src/cloop/Generator.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:20:03.432843104
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -688,43 +757,60 @@ output/release/bin/test1-c.so: build/release/tests/test1/CalcCApi.o build/releas
 #  Modification time never checked.
 #  File has not been updated.
 
+build/release/cloop/Generator.o: src/cloop/Generator.cpp src/cloop/Generator.cpp src/cloop/Generator.h src/cloop/Parser.h src/cloop/Lexer.h src/cloop/Action.h src/cloop/Expr.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Generator'
+#  Last modified 2022-08-12 12:20:27.749636199
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
+
 # Not a target:
-build/release/cloop/Generator.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/cloop/Action.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.210017721
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/tests/test1/PascalClasses.pas:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.470217681
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
-build/release/cloop/Action.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+build/release/cloop/Action.o: src/cloop/Action.cpp src/cloop/Action.cpp src/cloop/Action.h src/cloop/Expr.h src/cloop/Parser.h src/cloop/Lexer.h src/cloop/Generator.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Action'
+#  Last modified 2022-08-12 12:20:22.980870653
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
 
 # Not a target:
 build/release/cloop/Lexer.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:28.170615552
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 # Not a target:
 build/release/cloop/Parser.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:29.204564879
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
-# Not a target:
-build/release/tests/test1/CTest.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+build/release/tests/test1/CTest.o: src/tests/test1/CTest.c src/tests/test1/CTest.c src/tests/test1/CalcCApi.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'CTest'
+#  Last modified 2022-08-12 12:20:30.698491753
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(C_FLAGS) $< -o $@
 
 # Not a target:
 src/tests/test1/PascalTest.dpr:
@@ -740,52 +826,89 @@ clean:
 #  recipe to execute (from 'Makefile', line 71):
 	@rm -rf $(BUILD_DIR) $(OUT_DIR)
 
+src/cloop/Expr.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:12:22.465218116
+#  File has been updated.
+#  Successfully updated.
+
 output/release/bin:
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:31.440455474
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 68):
 	@mkdir -p $@
 
 # Not a target:
-build/release/cloop/Expr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/cloop/Expr.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.210017721
+#  File has been updated.
+#  Successfully updated.
+
+build/release/cloop/Expr.o: src/cloop/Expr.cpp src/cloop/Expr.cpp src/cloop/Expr.h src/cloop/Parser.h src/cloop/Lexer.h src/cloop/Action.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Expr'
+#  Last modified 2022-08-12 12:20:23.927824012
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
 
 output/release/bin/test1-cpp.so: build/release/tests/test1/CppTest.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:31.435455718
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 128):
 	$(LD) $^ -shared -ldl -o $@
 
 # Not a target:
 build/release/cloop/Main.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-08-12 12:20:30.006525607
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
+
+src/cloop/Parser.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.213017474
+#  File has been updated.
+#  Successfully updated.
 
 build/release/tests:
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+ 
+#  Last modified 2022-08-12 12:20:21.876925084
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 68):
 	@mkdir -p $@
 
 output/release/lib:
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:21.880924886
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 68):
 	@mkdir -p $@
 
 # Not a target:
-build/release/cloop/Parser.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/cloop/Parser.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 12:13:00.213017474
+#  File has been updated.
+#  Successfully updated.
+
+build/release/cloop/Parser.o: src/cloop/Parser.cpp src/cloop/Parser.cpp src/cloop/Parser.h src/cloop/Lexer.h src/cloop/Action.h src/cloop/Expr.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Parser'
+#  Last modified 2022-08-12 12:20:29.335558465
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	 -c $(CXX_FLAGS) $< -o $@
 
 output/release/bin/test1-pascal: src/tests/test1/PascalClasses.pas src/tests/test1/PascalTest.dpr src/tests/test1/CalcPascalApi.pas
 #  Implicit rule search has not been done.
@@ -796,14 +919,14 @@ output/release/bin/test1-pascal: src/tests/test1/PascalClasses.pas src/tests/tes
 
 build/release/tests/test1:
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-08-12 12:20:31.315461583
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 68):
 	@mkdir -p $@
- 
 
 # files hash-table stats:
-# Load=49/1024=5%, Rehash=0, Collisions=2/134=1%
+# Load=61/1024=6%, Rehash=0, Collisions=12/350=3%
 # VPATH Search Paths
 
 vpath %.c src/cloop:src/tests:src/tests/test1
@@ -813,12 +936,12 @@ vpath %.cpp src/cloop:src/tests:src/tests/test1
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 101 / storage = 2132 B / avg = 21 B
-# current buf: size = 8162 B / used = 2132 B / count = 101 / avg = 21 B
+# strcache buffers: 1 (0) / strings = 133 / storage = 2527 B / avg = 19 B
+# current buf: size = 8162 B / used = 2527 B / count = 133 / avg = 19 B
 
-# strcache performance: lookups = 193 / hit rate = 47%
+# strcache performance: lookups = 357 / hit rate = 62%
 # hash-table stats:
-# Load=101/8192=1%, Rehash=0, Collisions=4/193=2%
-# Finished Make data base on Fri Aug 12 12:13:37 2022
+# Load=133/8192=2%, Rehash=0, Collisions=5/357=1%
+# Finished Make data base on Tue Aug 23 13:30:20 2022
 
  

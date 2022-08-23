@@ -127,6 +127,10 @@ string ConstantExpr::generate(Language language, const string& prefix)
 			case LANGUAGE_JSON:
 				return "{ \"type\": \"constant\", \"interface\": \"" + interface->name +
 					"\", \"name\": \"" + name + "\" }";
+		
+			case LANGUAGE_PYTHON:
+				retPrefix = prefix + interface->name + "_";
+				break;
 		}
 	}
 
