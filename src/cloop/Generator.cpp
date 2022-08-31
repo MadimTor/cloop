@@ -2272,7 +2272,7 @@ PythonGenerator::PythonGenerator(const string& filename, Parser* parser, const s
 
 void PythonGenerator::generate()
 {
-	fprintf(out, "// %s\n\n", AUTOGEN_MSG);
+	fprintf(out, "# %s\n\n", AUTOGEN_MSG);
 
 	// fprintf(out, "from __future__ import annotations\n");
 	// fprintf(out, "from typing import Union, Any, Optional, ByteString\n");
@@ -2280,7 +2280,7 @@ void PythonGenerator::generate()
 	// fprintf(out, "import threading\n"); 
 	// fprintf(out, "import datetime\n"); 
 	// fprintf(out, "from warnings import warn\n");  
-	// fprintf(out, "import ctypes"); 
+	fprintf(out, "import ctypes"); 
 	 
 	fprintf(out, "\n\n"); 
 
@@ -2354,7 +2354,8 @@ void PythonGenerator::generate()
 				fprintf(out, ", %s", parameter->name.c_str());
 			}
 
-			fprintf(out, "):\n\n");
+			fprintf(out, "):\n");
+			fprintf(out, "\t\tpass\n");
 		}
 
 
